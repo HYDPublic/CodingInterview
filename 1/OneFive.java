@@ -12,6 +12,7 @@ James Earle - August 29, 2015
 */
 import java.io.*;
 import java.util.LinkedList;
+import java.lang.StringBuffer;
 
 public class OneFive {
 
@@ -36,29 +37,55 @@ public class OneFive {
 
 	public String compress(String str) {
 		char[] newStr = str.toCharArray();
-		String result = "";
+		StringBuffer result = new StringBuffer();
+
+		if(compressionLength(str) >= str.length()) return str;
 
 		//The previous character, so we take first values before loop.
 		char last = newStr[0];
 		int ctr = 1;
 
 		//We will append values to result.
-		result += last;
+		result.append(last);
 
 		for(int i=1;i<newStr.length;i++) {
 			if(newStr[i] == last) {
 				ctr++;
 			} else {
-				result += String.valueOf(ctr);
-				ctr = 1;
 				last = newStr[i];
-				result += last;
+				result.append(String.valueOf(ctr) + last);
+				ctr = 1;
 			}
 
-			if(i+1 == newStr.length) result += String.valueOf(ctr);
+			if(i+1 == newStr.length) result.append(String.valueOf(ctr));
 		}
 
-		return result.length() >= str.length() ? str : result;
+		return result.toString();
+	}
+
+	public int compressionLength(String str) {
+		int result = 0;
+
+		if(str.isEmpty() || str == null) return result;
+
+		char[] newStr = str.toCharArray();
+		char last = newStr[0];
+		int ctr = 1, overallCount = 0;
+
+		for(int i=1;i<str.length();i++) {
+			if(newStr[i] == last) {
+				ctr++;
+			} else {
+				last = newStr[i];
+				//Use .length() below for multiple digit numbers.
+				overallCount += 1 + String.valueOf(ctr).length();
+				ctr = 1;
+			}
+		}
+
+		return overallCount;
+
+
 	}
 
 	public static void main(String[] args) {
