@@ -5,6 +5,33 @@ Given an image represented by an NxN matrix, where each pixel is 4 bytes,
 write a method to rotate the image 90 degrees.
 Can you do this in place?
 
+NOTE: O(n^2) is best we can do, as any solution must touch all n^2 elements.
+
+This implementation simply iterates the array in row-major order, mapping
+to a new array in column-major order (from last column to first, in this case)
+
+This is equivalent to the solution in the book, but that solution uses "layers", 
+outermost in or innermost out.
+
+Sample output:
+
+n: 5
+5
+
+Original array
+01234
+01234
+01234
+01234
+01234
+
+Rotated array
+00000
+11111
+22222
+33333
+44444
+
 James Earle - August 30, 2015
 */
 import java.io.*;
