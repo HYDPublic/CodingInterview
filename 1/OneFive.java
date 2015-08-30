@@ -39,6 +39,7 @@ public class OneFive {
 		char[] newStr = str.toCharArray();
 		StringBuffer result = new StringBuffer();
 
+		//Don't bother compressing if the length is more than the string itself
 		if(compressionLength(str) >= str.length()) return str;
 
 		//The previous character, so we take first values before loop.
@@ -84,8 +85,6 @@ public class OneFive {
 		}
 
 		return overallCount;
-
-
 	}
 
 	public static void main(String[] args) {
