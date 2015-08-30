@@ -4,7 +4,6 @@ Problem 1.4 - Cracking the Coding Interview
 Replace all spaces with %20, but use a char array to perform the operation in place.
 
 e.g.
-
 Input: "Mr John Smith   ", 13
 Output: "Mr%20John%20Smith"
 
@@ -18,6 +17,7 @@ public class OneFour {
 	public OneFour() {
 		char[] str = {'j', 'a', 'm', ' ', 'e', 's', 'E', ' ', ' ', ' ', ' ', ' ', ' '};
     	int size = 7;
+    	
 		str = replaceSpace(str, size);
 
 		for(char c : str) {
