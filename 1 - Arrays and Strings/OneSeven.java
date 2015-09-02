@@ -44,7 +44,8 @@ public class OneSeven {
 			arr[row][col] = 0; //O(1)
 			zeroRow(row, arr); //O(n)
 			zeroCol(col, arr); //O(m)
-			//Total: O(m + n)
+			//Timw:  O(m + n)
+			//Space: O(mn)
 		} else {
 			System.out.println("row and col are out of bounds.");
 		}
@@ -62,7 +63,7 @@ public class OneSeven {
 		}
 	}
 
-	//For testing, generates an array size MxN with random numbers 1-50
+	//For testing, generates an array size MxN with random numbers 1-15
 	public int[][] generateArray(int m, int n) {
 		int[][] result = new int[m][n];
 
