@@ -3,10 +3,12 @@ public class Node<T> {
 	
 	Node<T> next;
 	T data;
+	int length;
 
 	public Node(Node<T> n, T d) {
 		this.next = n;
 		this.data = d;
+		this.length = 1;
 	} 
 
 	public void add(Node<T> d) {
@@ -15,6 +17,7 @@ public class Node<T> {
 			n = n.next;
 		}
 		n.next = d;
+		this.length++;
 	}
 
 	public void add(T d) {
